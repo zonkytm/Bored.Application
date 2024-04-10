@@ -1,9 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>Пакет для взаимодействия с апи приложения Bored.Application</Description>
+    <RepositoryUrl>https://github.com/zonkytm/Bored.Application</RepositoryUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.1.0</Version>
+    <PackageProjectUrl>https://github.com/zonkytm/Bored.Application</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>

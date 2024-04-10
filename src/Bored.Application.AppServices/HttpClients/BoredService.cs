@@ -1,9 +1,9 @@
-﻿using Bored.Application.Api.Activities.Requests;
-using Microsoft.Extensions.Options;
-using System.Net.Http;
-using System.Diagnostics;
+﻿using System.Net.Http.Json;
+using Bored.Application.Api;
+using Bored.Application.Api.Activities.Requests;
+using Bored.Application.Appservices.Contracts.Activities.Infos;
 
-namespace Bored.Application.Host.HttpClients
+namespace Bored.Application.AppServices.HttpClients
 {
     public class BoredService : IBoredService
     {
@@ -16,18 +16,18 @@ namespace Bored.Application.Host.HttpClients
 
         }
 
-        public async Task<Api.ActivityModel> GetActivity(GetActivityRequest request)
+        public async Task<GetActivityInfo> GetActivityAsync(GetActivityRequest request)
         {
             var query = "?type=social";
 
-            var activityResponce = await _httpClient.GetAsync(_url);
+            var activityResponce = await _httpClient.GetAsync(_url + query);
 
             if (!activityResponce.IsSuccessStatusCode)
             {
                 throw new Exception("Апи недоступно");
             }
 
-            var activity = await activityResponce.Content.ReadFromJsonAsync<Api.ActivityModel>();
+            var activity = await activityResponce.Content.ReadFromJsonAsync<GetActivityInfo>();
 
             return activity;
         }

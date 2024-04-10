@@ -2,6 +2,6 @@
 {
     public class GetActivityResponse
     {
-        public Api.ActivityModel Activity;
+        public ActivityModel Activity { get; set;}
     }
 }

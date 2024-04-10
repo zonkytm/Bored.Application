@@ -2,5 +2,7 @@
 {
     public class GetActivityRequest
     {
+        public long UserId { get; init; }
+        
     }
 }
